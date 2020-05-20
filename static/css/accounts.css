@@ -1,0 +1,87 @@
+body
+{   
+    font-family: "Dosis", sans-serif;
+    color: #444444;
+    background-image: linear-gradient(rgba(20, 182, 174, 0.8), #00ABA2), url(assets/hero-sm.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login-wrap .brand
+{
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #0f394c;
+}
+.login-wrap .brand::after
+{
+    content: '';
+    display: inline-block;
+    margin-left: 4px;
+    height: 10px;
+    width: 10px;
+    background: rgb(20, 182, 174);
+}
+.login-wrap .card-body
+{
+    width: 90%;
+    margin: 0 auto;
+}
+.login-wrap input
+{
+    margin: 20px auto;
+    height: 1.2cm;
+    border: 1px solid rgb(243, 237, 237);
+    outline: none;
+    font-family: "Dosis", sans-serif;
+}
+.links
+{
+    margin: 20px 0;
+    font-family: "Dosis", sans-serif;
+}
+.links a
+{
+    text-decoration: none;
+    color: #2e2c2c;
+}
+.links a:hover
+{
+    text-decoration: none;
+}
+.agree
+{
+    text-align: center;
+    margin: 15px auto;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Dosis", sans-serif;
+}
+.agree a 
+{
+    text-decoration: underline;
+}
+
+#copyright
+{
+    font-size: 14px;
+    font-family: "Dosis", sans-serif;
+}
+#copyright, #brand
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+.submit-btn{
+    background: linear-gradient(42deg,rgb(20, 182, 174) 0%,#00ABA2 100%);
+    border-radius: 4px;
+    font-family: "Dosis", sans-serif;
+}
+.submit-btn a:hover {
+    background: linear-gradient(180deg, rgb(20, 182, 174) 0%,#00ABA2 100%);
+}

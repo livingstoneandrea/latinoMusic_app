@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Favicons -->
+    <link href="{% static 'images/logo.jpg' %}" rel="icon" />
+    <link href="{% static 'images/logo.jpg' %}" rel="apple-touch-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
+    <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+
+    <title>Home | Master Kumbia</title>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+            <div class="logo mr-auto">
+                <a href="index.html"><img src="{% static 'images/logo.jpg' %}" alt="" class="img-fluid" /></a>
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li><a href="#">Learn More</a></li>
+                    <li><a href="#pricing-plans">Pricing</a></li>
+                    <li><a href="{% url 'latinoMusic_app:index' %}">Cumbia packs</a></li>
+
+                    <li class="get-started"><a href="{% url 'latinoMusic_app:login' %}">Accounts</a></li>
+                </ul>
+            </nav>
+            <!-- .nav-menu -->
+        </div>
+    </header>
+    <!-- End Header -->
+    <section id="hero">
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="{% static 'site-videos/Home _ BPM Latino.mp4' %}" type="video/mp4" />
+      </video>
+        <div class="container h-100">
+            <div class="d-flex h-100 align-items-center">
+                <div class="w-100 text-white">
+                    <h1 data-aos="fade-up">Download Beets for music</h1>
+                    <h2 data-aos="fade-up" data-aos-delay="400">
+                        Master Kumbia makes it easy for you to get all the newest Latino tracks.
+                    </h2>
+                    <div data-aos="fade-up" data-aos-delay="800">
+                        <a href="#about" class="btn-get-started scrollto">Get Started for Free</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <main id="main">
+      <!-- ======= Artists Section ======= -->
+      <section id="artists" class="artists">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>From hottest latin artists</h2>
+            <p>
+              Master Kumbia has the newest music from the hottest Latin artists.
+            </p>
+          </div>
+          <div class="row" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Celso Pina.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Grupo Icc.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Grupo Jalado.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Los Angeles Azules.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Los Daddys.jpg' %} "
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Raymix Tu y Yo.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Raymix Fake Lover.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch member">
+              <div class="member">
+                <div class="member-img">
+                  <img
+                    src="{% static 'images/Grupo Kual.jpg' %}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <div class="row item" data-aos="fade-up">
+            <div
+              class="col-md-6 my-auto"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <h2>
+                Every Essential <br />
+                Latin Genre
+              </h2>
+              <p>
+                Master Kumbia has every essential Latin genre - Reggaeton,
+                Regional, Urban, Tropical, Cumbia, Bachata, House, Rock En
+                Español, and more.
+              </p>
+              <a href="#" class="more">
+                Learn more
+              </a>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <img src="{% static 'images/feature1.jpg' %}" alt="" class="img-fluid animated" />
+                    </div>
+                </div>
+                <div class="row item" data-aos="fade-up">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+                        <img src="{% static 'images/home-easy.png' %}" alt="" class="img-fluid animated" />
+                    </div>
+                    <div class="col-md-6 my-auto" data-aos="fade-up" data-aos-delay="300">
+                        <h2>
+                            Easy-To-Use Website
+                        </h2>
+                        <p>
+                            Browse new releases, top downloads, and playlists. Quickly search for the hottest tracks, preview them, then download one by one or as a batch.
+                        </p>
+                        <a href="#" class="more">
+                Learn more
+              </a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="all-access" class="all-access">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 class="text-white">Latest hits and trending artists.</h2>
+                <p>
+                    Get an all-access pass to the latest hits and trending artists.
+                </p>
+            </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-md-6 my-auto">
+                    <ul>
+                        <li>High Quality MP3 Audio</li>
+                        <li>Version Selection</li>
+                        <li>New Releases, Exclusives, and Diverse Content</li>
+                        <li>Track Preview</li>
+                        <li>Daily Uploads</li>
+                        <li>Quick Downloads</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/home-access.png' %}" class="img-fluid" alt="" />
+                </div>
+            </div>
+            <div class="text-center mt-3" data-aos="fade-up">
+                <a href="#" class="more">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>What People Say</h2>
+                <p>Look at what people say about Master Kumbia</p>
+            </div>
+
+            <div class="owl-carousel testimonials-carousel" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <img src="{% static 'images/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="" />
+                        <h3>Saul Goodman</h3>
+                        <h4>Musician</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <img src="{% static 'images/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="" />
+                        <h3>Sara Wilsson</h3>
+                        <h4>Producer</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <img src="{% static 'images/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="" />
+                        <h3>Jena Karlis</h3>
+                        <h4>Dee Jay</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <img src="{% static 'images/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="" />
+                        <h3>Matt Brandon</h3>
+                        <h4>Fan</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <img src="{% static 'images/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="" />
+                        <h3>John Larson</h3>
+                        <h4>Artist</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonials Section -->
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing-plans" class="pricing">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Membership plans</h2>
+                <p>Choose the plan that's right for you.</p>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6">
+                    <div class="box">
+                        <h3>Standard</h3>
+                        <h4><sup>$</sup>4.99<span> / month</span></h4>
+                        <ul>
+                            <li>Unlimited MP3 Audio Downloads</li>
+                            <li>Tagged with BPM, Genre and key</li>
+                            <li>Version selection</li>
+                            <li class="na">HQ Audio Streaming</li>
+                            <li class="na">Playlists</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="{% url 'latinoMusic_app:subscription' %}" class="btn-buy">Get standard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <div class="box featured">
+                        <h3>Premium</h3>
+                        <h4><sup>$</sup>9.99<span> / month</span></h4>
+                        <ul>
+                            <li>Unlimited MP3 Audio Downloads</li>
+                            <li>Tagged with BPM, Genre and key</li>
+                            <li>Version selection</li>
+                            <li>HQ Audio Streaming</li>
+                            <li>Playlists</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="{% url 'latinoMusic_app:subscription' %}" class="btn-buy">Get premium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Pricing Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h4>Create your new account</h4>
+                        <p>
+                            Sign up to be the first to receive new products, VIP offers, and more.
+                        </p>
+                        <form action="" method="post">
+                            <input type="email" name="email" placeholder="Your Email Address" />
+                            <input type="submit" value="Create Account" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>Master Kumbia</h3>
+                        <p>
+                            A108 Adam Street <br /> New York, NY 535022<br /> United States <br /><br />
+                            <strong>Phone:</strong> +1 5589 55488 55<br />
+                            <strong>Email:</strong> info@example.com<br />
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">All Tracks</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">By Genre</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Cumbia Packs</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Policy</h4>
+                        <ul>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Refund Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Social Networks</h4>
+                        <p>Connect with us today on our social media platforms</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i
+                ></a>
+                            <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Master Kumbia</span></strong
+          >. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by
+          <a href="https://www.jsoftmedia.com/" target="_blank">JSoftMedia</a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

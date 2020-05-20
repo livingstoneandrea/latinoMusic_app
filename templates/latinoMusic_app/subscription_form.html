@@ -1,0 +1,14 @@
+{% extends 'latinoMusic_app/base.html' %}
+{% load static %}
+{% block body_block %}
+<form action="" method="POST">
+{% csrf_token %}
+{{sub_form}}
+<input type='submit' value='subscribe'>
+</form>
+
+
+ {% endblock body_block %}
+
+
+
