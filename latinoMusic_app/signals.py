@@ -1,12 +1,13 @@
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
-from latinoMusic_app.models import Profile
+from latinoMusic_app.models import (Profile,Processed_payment)
 from django.dispatch import receiver
 from paypal.standard.models import ST_PP_COMPLETED
 from paypal.standard.ipn.signals import valid_ipn_received
 from django.core.mail import EmailMessage
 from datetime import datetime
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 
 
 @receiver(post_save, sender=User)
@@ -56,7 +57,8 @@ def ipn_receiver(sender,**kwargs):
         user.extend()#extends subscription
         
         subject = 'Your invoice for {} is available'.format(datetime.strftime(datetime.now(),"%b %Y")) 
-        message = 'Thanks for using our service.The balance was automatically charged from your credit card.' 
+        message = 'Thanks for using our service.The balance was automatically charged from your credit card.'
+         
         email = EmailMessage(
             subject,
             message,
@@ -65,6 +67,9 @@ def ipn_receiver(sender,**kwargs):
             
         ) 
         email.send()
+        processed_pays = Processed_payment(user=ipn_obj.custom,status='Processed',paid =True,total_paid=10,date=timezone.now)
+        processed_pays.save()
+        
      #check for failed subscription payment IPN   
     elif ipn_obj.txn_type == "subscr_failed":
         pass 

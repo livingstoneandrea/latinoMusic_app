@@ -16,8 +16,16 @@ urlpatterns = [
     path('process-payment/',views.process_payment,name='process_payment'),
     path('payment-done/',views.payment_done,name='payment_done'),
     path('payment-cancelled/',views.payment_cancelled,name='payment_cancelled'),
-    path('playmusic/<slug:songid>',views.play_Music,name='play_music'),
+    path('playmusic/',views.play_Music,name='play_music'),
     path('downloadmusic/',views.download_Music,name='download_music'),
+    path('email-subscription/',views.EmailSubscriptions,name='email_subscription'),
+    path('latinoMusic-admin/',views.LatinoAdminSiteView.as_view(),name='latino-admin'),
+    path('all-songs/',views.LatinoAdminAllSongsView.as_view(),name='latino-admin-all_songs'),
+    path('all-genres/',views.LatinoAdminAllGenresView.as_view(),name='latino-admin-all_genres'),
+    path('add-new_song/',views.CreateSong.as_view(),name='add-song'),
+    path('add-new_genre/',views.CreateGenre.as_view(),name='add-genre'),
+    path('user-profile/',views.profile,name='user-profile'),
+    path('update-user/',views.UpdateProfileDetails,name='updateProfile-details'),
 ]
 
 

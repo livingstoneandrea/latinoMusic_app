@@ -23,7 +23,7 @@
                                 <input type="text" name="username" placeholder="Username" class="form-control">
                                 <input type="password" name="password" placeholder="Password" class="form-control">
                                 <div class="row links">
-                                    <a href="#" class="col">Forgot password?</a>
+                                    <a href="{% url 'password_reset' %}" class="col">Forgot password?</a>
                                     <a href="{% url 'latinoMusic_app:register' %}" class="col text-right">Create account</a>
                                 </div>
                                 <button class="btn btn-lg btn-block btn-primary submit-btn"

@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import (Profile,File_uploaded)
+from latinoMusic_app.models import (Subscribers,Song,Genre)
 
 
 class SignUpForm(UserCreationForm):
@@ -14,12 +15,15 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2',)
 
-
 class Profile_InfoForm(ModelForm):
     class Meta:
         model = Profile
-        exclude =['user','signup_confirmation','phone_number','location']
+        exclude =['user','signup_confirmation']
         
+class EmailSubscriptionForm(ModelForm):
+    class Meta:
+        model = Subscribers
+        fields ='__all__'         
         
 class File_UploadForm(ModelForm):
     
@@ -27,16 +31,23 @@ class File_UploadForm(ModelForm):
         model = File_uploaded
         fields = '__all__'
 
-
+class UploadSongsForm(ModelForm):
+    class Meta:
+        model = Song
+        fields = '__all__'
+class AddGenreForm(ModelForm):
+    class Meta:
+        model = Genre
+        fields = '__all__'
+        
 #subscription form
 
 subscription_options =[
-    ('free','Free for 1-Month subscription ($0 USD/Mon)'),
-    ('standard','Standard 1-month subscription at($10 USD/Mon)'),
-    ('premium','Premium 1-month subscription at($20 USD/Mon)'),
-    
+    ('free','Free for 1-Month ($0 USD/Mon)'),
+    ('standard','Standard at($10 USD/Mon)'),
+    ('premium','Premium  at($20 USD/Mon)'),    
 ] 
 
 class SubscriptionForm(forms.Form):
     plans = forms.ChoiceField(choices=subscription_options)
-           
+          

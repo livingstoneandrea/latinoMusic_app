@@ -20,12 +20,18 @@
     <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+     {% block stylesheet %}
+    {% endblock stylesheet %}
 
     <title>Master Kumbia| only latino Music</title>
 </head>
 
 <body>
    {% block body_block %}
+
    {% endblock body_block %}
 </body>
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+{% block scripts %} {% endblock scripts %}
 </html>

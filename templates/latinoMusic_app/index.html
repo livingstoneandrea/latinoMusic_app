@@ -20,6 +20,7 @@
     <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+   
 
     <title>Home | Master Kumbia</title>
 </head>
@@ -36,7 +37,7 @@
                 <ul>
                     <li><a href="#">Learn More</a></li>
                     <li><a href="#pricing-plans">Pricing</a></li>
-                    <li><a href="{% url 'latinoMusic_app:index' %}">Cumbia packs</a></li>
+                    <li><a href="{% url 'latinoMusic_app:application_details' %}">Cumbia packs</a></li>
 
                     <li class="get-started"><a href="{% url 'latinoMusic_app:login' %}">Accounts</a></li>
                 </ul>
@@ -53,7 +54,7 @@
         <div class="container h-100">
             <div class="d-flex h-100 align-items-center">
                 <div class="w-100 text-white">
-                    <h1 data-aos="fade-up">Download Beets for music</h1>
+                    <h1 data-aos="fade-up">Download Bits for music</h1>
                     <h2 data-aos="fade-up" data-aos-delay="400">
                         Master Kumbia makes it easy for you to get all the newest Latino tracks.
                     </h2>
@@ -261,54 +262,19 @@
                         </p>
                     </div>
                 </div>
-
-                <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                        <img src="{% static 'images/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="" />
-                        <h3>Sara Wilsson</h3>
-                        <h4>Producer</h4>
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                        <img src="{% static 'images/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="" />
-                        <h3>Jena Karlis</h3>
-                        <h4>Dee Jay</h4>
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                        <img src="{% static 'images/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="" />
-                        <h3>Matt Brandon</h3>
-                        <h4>Fan</h4>
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="testimonial-wrap">
-                    <div class="testimonial-item">
-                        <img src="{% static 'images/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="" />
-                        <h3>John Larson</h3>
-                        <h4>Artist</h4>
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>
+                {% for testimonial in testimonials %}
+                  <div class="testimonial-wrap">
+                      <div class="testimonial-item">
+                          <img src="{{testimonial.profile_pic.url}}" class="testimonial-img" alt="" />
+                          <h3>{{testimonial.name}}</h3>
+                          <h4>{{testimonial.occupation}}</h4>
+                          <p>
+                              <i class="bx bxs-quote-alt-left quote-icon-left"></i> Your music beats are great and nice. I listen to them everyday. Every musician out there should try them on there songs.
+                              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                          </p>
+                      </div>
+                  </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -371,7 +337,8 @@
                         <p>
                             Sign up to be the first to receive new products, VIP offers, and more.
                         </p>
-                        <form action="" method="post">
+                        <form action="" method="post" class="subscription-form">
+                         {% csrf_token %}
                             <input type="email" name="email" placeholder="Your Email Address" />
                             <input type="submit" value="Create Account" />
                         </form>
@@ -470,5 +437,31 @@
     <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
     <script src="{% static 'vendor/aos/aos.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script>
+       $(document).ready(function(){
+
+         $('.subscription-form').submit(function(e) {
+              e.preventDefault();
+              var serializedData = $(this).serialize();
+               $.ajax({
+                  url: "{% url 'latinoMusic_app:email_subscription' %}",
+                  dataType: "json",
+                  method: 'post',
+                  data: serializedData,
+                  headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                  success: function(response) {
+                      var msg = response["message"];
+                      alert(msg);
+                     
+                  },
+                  error: function(response) {
+                      alert(response["error"]);
+
+                  }
+              }); 
+
+          });
+       });
+    </script>
   </body>
 </html>

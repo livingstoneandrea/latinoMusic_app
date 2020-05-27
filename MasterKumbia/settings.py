@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'latinoMusic_app.apps.LatinomusicAppConfig',
     'paypal.standard.ipn',
+    'latinoMusic_admin.apps.LatinomusicAdminConfig',
 ]
 
 MIDDLEWARE = [

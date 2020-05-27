@@ -37,12 +37,12 @@ $(document).ready(function() {
 
 
 
-    $('div#play-audio').on('click', function() {
+    // $('div#play-audio').on('click', function() {
 
-        let audi_player = '<audio controls autoplay><source src=' + $(this).attr('data-url') + ' type="audio/mpeg"/></audio>'
+    //     let audi_player = '<audio controls autoplay><source src=' + $(this).attr('data-url') + ' type="audio/mpeg"/></audio>'
 
-        $('.audio-player').show().append(audi_player);
+    //     $('.audio-player').show().append(audi_player);
 
-    });
+    // });
 
 });

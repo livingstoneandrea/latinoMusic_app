@@ -1,0 +1,81 @@
+{% extends 'latinoMusic_app/base.html' %}
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/user-profile_form.css' %}">
+{% endblock stylesheet %}
+{% block body_block %}
+<main class="full-view">
+        <section class="full-view_inner_cont">
+            
+            <form method="post" action="" class="profile" id="user_profForm" enctype="multipart/form-data">
+            {% csrf_token %}
+              
+                <article class="subscrip-desc">
+                    <span class="fas fa-user-tie" style="color: #fff;font-size: 3rem;"></span>
+                    <p>Update user info</p>
+                </article>
+                <article class="subscrip_field field">
+                   {{profile_form.as_p}}
+                </article>
+                
+                <article class="subscrip_footer d-flex" style="justify-content:space-around;flex-direction:row;">
+                    <a href="{% url 'latinoMusic_app:application_details' %}" style="color:red">Cancel</a>
+                    <input type='submit' value='update' class='subscrip_btn'>
+                    
+                </article>
+            </form>
+        </section>
+    
+ </main>
+{% endblock body_block %}
+{% block scripts %}
+ <script>
+          $('#user_profForm').submit(function(e) {
+              e.preventDefault();
+              window.alert("form submitted");
+              var serializedData = $(this).serialize();
+              console.log("serialized data :" + serializedData);
+              //let file = $('[type=file]').val();
+              //console.log(file);
+
+              //$form = $(this);
+              //let formData = new FormData(this);
+              //formData.append('image',file);
+              //console.log("form data :"+formData);
+              //serializedData.append('image',file)
+
+              $.ajax({
+                  url: {% url 'latinoMusic_app:updateProfile-details' %},
+                  dataType: "json",
+                  method: 'post',
+                  data:serializedData ,
+                  headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                  success: function(response) {
+                      alert(response['message']);
+                     
+
+                  },
+                  error: function(response) {
+                      alert(response["error"]);
+
+                  }
+              });
+
+          });
+
+
+</script>
+
+
+ {% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+

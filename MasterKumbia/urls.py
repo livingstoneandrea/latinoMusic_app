@@ -23,15 +23,15 @@ from latinoMusic_app import views
 
 
 urlpatterns = [
-    path('latinoMusicApp/',include('latinoMusic_app.urls')),
+    path('',include('latinoMusic_app.urls')),
     path('paypal/',include('paypal.standard.ipn.urls')),
     path('admin/', admin.site.urls),
     path('change-password/', auth_views.PasswordChangeView.as_view()),
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view()),
-    path('password_reset/', auth_views.PasswordResetView.as_view()),
-    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view()),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view()),
-    path('reset/done/', auth_views.PasswordResetCompleteView.as_view()),
+    path('password_reset/', auth_views.PasswordResetView.as_view(),name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(),name='reset_done'),
     
 ]
 

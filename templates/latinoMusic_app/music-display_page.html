@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
 </head>
 
-<body>
+<body style="background:#01040B;">
     <section id="app">
         <div id="main">
             <div id="content">
@@ -24,7 +24,7 @@
                             <div class="" style="display:flex; width:100%;">
                                 <div class="" style="flex-grow: 0; flex-shrink: 0;position: relative;overflow: hidden; width: 100%">
                                     <div class="" style="display:flex;flex-direction: column;font-size: 2rem;height: 100%;overflow-x: hidden;overflow-y: auto;padding: 0;">
-                                        <a href="{% url 'latinoMusic_app:index' %}" style="color:#16a684">Master Kumbia</a>
+                                        <a href="{% url 'latinoMusic_app:index' %}" style="color:#fff">Master Kumbia</a>
                                         <section class="" style="display: flex; flex-direction: column;flex: 1 1 100%;justify-content: space-between;">
                                             <div class="nav-side_content">
                                                 <ul class="">
@@ -60,7 +60,7 @@
                         <div class="nav-side_content">
                           <ul class="">
                             <li class="">
-                              <a href="#subscribe-sec" class="">
+                              <a href="#" class="" id="apps_modal_btn" >
                                 <span
                                   class="fas fa-cogs "
                                   style="display: inline-block;position: relative;text-align: center; margin-right: 1rem;"
@@ -74,7 +74,7 @@
                                 <span
                                   class=""
                                   style="display: inline-block;position: relative;text-align: center; margin-right: 1rem;"
-                                  ><i class="fas fa-share-alt"></i
+                                  ><i class="fas fa-sign-out-alt"></i
                                 ></span>
                                                             <span class="" style="font-size: 1rem;">Log Out</span
                                 >
@@ -90,7 +90,7 @@
               <main class="">
                 <section
                   class="main-sec grid-12 grid-parent"
-                  style="margin-left: 16rem;background-color: #fff;box-shadow: 0 0 40px rgba(0,0,0,0.2);left: 0;position: fixed;right: 0;top: 0;transition: margin-left .2s ease-in-out,margin-right .2s ease-in-out;z-index: 9;"
+                  style="margin-left: 16rem;background-color: #000;box-shadow: 0 0 40px rgba(0,0,0,0.2);left: 0;position: fixed;right: 0;top: 0;transition: margin-left .2s ease-in-out,margin-right .2s ease-in-out;z-index: 9;"
                 >
                  <div class="grid-1" style="padding: .6rem 0.8rem;  ">
                     <img src="{% static 'images/logo.jpg' %}" alt="" style="width:38px;height:38px">
@@ -132,18 +132,14 @@
                       </article>
                     </section>
                   </div>
-                  <div class="grid-1" style="padding: 1rem 0.8rem; ">
-                              <a href="#" class="nav_link"
-                              id="user-account"
-                               
-                                ><i class="fas fa-user-check"></i></a
-                              >
-                              {{request.user.id}}
-                            </div>
+                  <div class="grid-1" style="padding: 1rem 2rem 0.8rem ">
+                      <a href="#" class="nav_link" id="user-account"><img src="{% static 'images/logo.jpg' %}" style="width:28px; height:28px;border-radius:50%"></a >
+                        {{request.user.id}}
+                  </div>
                    <button class="header_hamburger-btn grid-2" type="button" onclick="openMobileNav()" style="margin-right: 1.2rem;">
                       <span
                         class="fas fa-align-right"
-                        style="font-size: 2rem; background: transparent;color:#272727;"
+                        style="font-size: 2rem; background: transparent;color:#fff;"
                       ></span>
                                                             </button>
                                                             <div id="mobile-Nav" class="overlay">
@@ -152,7 +148,7 @@
                                                                     <a href="#Tracks">Tracks</a>
                                                                     <a href="#featured">New Releases</a>
                                                                     <a href="#trend">Trends</a>
-                                                                    <a href="#playlists">Playlists</a>
+                                                                    <a href="#playlist">Playlists</a>
                                                                     <a href="#genre">Genres</a>
                                                                     <a href="#packs">Kumbia packs</a>
                                                                 </div>
@@ -209,7 +205,7 @@
                                                     <section class="grid-12">
                                                         <div class="container-fluid">
                                                             <div class="row d-flex text-align_c">
-                                                                <div class="col-md-4 col-sm-12">
+                                                                {% comment %} <div class="col-md-4 col-sm-12">
                                                                     <div class="section-title">
                                                                         <h2 data-aos="fade-in">Our work</h2>
                                                                         <p data-aos="fade-in">
@@ -222,7 +218,7 @@
                                                                         <input type="text" name="" placeholder="search here for best experience" id="" />
                                                                         <button type="submit">Search</button>
                                                                     </form>
-                                                                </div>
+                                                                </div> {% endcomment %}
                                                             </div>
                                                         </div>
                                                     </section>
@@ -258,7 +254,7 @@
                                                                             </a>
                                                                             <ul class="social">
                                                                                 <li>
-                                                                                    <a href="javascript:void(0)" id="play-audio" data-tip="Quickly listen" data-url="{{truck.track.url}}"><i class="fas fa-play"></i></a>
+                                                                                    <a href="javascript:void(0)" class="play-bground" id="play-audio" data-tip="Quickly listen" data-url="{{truck.track.url}}" data-id="{{truck.track.id}}"><i class="fas fa-play"></i></a>
                                       
                                                                                 </li>
                                                                                 <li>
@@ -297,28 +293,28 @@
                                                             <div class="no-scrollbar" style="display:flex ; flex: 1 1 0%; overflow-x: scroll;">
                                                             {% for featured in featureds %}
                                                                 <div class="coverlist-item" style="margin-left: 0px; margin-right: 15px;width: 240px;cursor: auto;">
-                                                                    <img src="{{featured.artist_image.url}}" alt="" style="height: 240px;width: 240px;object-fit: cover;margin-bottom: 15px;" />
+                                                                    <img src="{{featured.song.artist_image.url}}" alt="" style="height: 240px;width: 240px;object-fit: cover;margin-bottom: 15px;" />
                                                                     <div style="display: flex; flex-direction: row;">
                                                                         <div style="overflow: hidden;">
                                                                             <div style="display: flex;justify-content: space-between;">
-                                                                                <span class="item-text item-title_link">Get Up 2</span>   
+                                                                                <span class="item-text item-title_link">{{featured.song.title}}</span>   
                                                                             </div>
                                                                                 <span class="item-text item-subtitle">
-                                                                                  <span class="link">music Junkies</span>
+                                                                                  <span class="link">{{featured.song.artist_name}}</span>
                                                                                 </span>
                                                                             </div>
                                                                         </div>
                                                                         <span class="item-text item-info">105</span>
                                                                         <div class="play-pause-overlay" style="height: 240px; width: 240px;object-fit: cover; margin-bottom: 15px;cursor:pointer">
                                                                             <span style="cursor: pointer;">
-                                                                              <div id="play-audio" class="play-background" data-url="{{featured.track.url}}">
+                                                                              <div id="play-audio" class="play-background" data-url="{{featured.song.track.url}}" data-id="{{featured.song.id}}">
                                                                                 <span class="fas fa-play text-align_c"></span>
                                                                               </div>    
                                                                             </span>      
                                                                         <div class="cover-more">
                                                                             <div class="browse-more" style="margin-left: auto;">
                                                                                 <div class="btn-group">
-                                                                                    <a href="{{featured.track.url}}" data-id="{{featured.id}}" style="border-radius: 50%;margin-bottom: 12px;" id="download-btn">
+                                                                                    <a href="{{featured.song.track.url}}" data-id="{{featured.song.id}}" style="border-radius: 50%;margin-bottom: 12px;" id="download-btn">
                                                                                         <span class="fas fa-download"></span>
                                                                                     </a>
                                                                                 </div>
@@ -332,7 +328,7 @@
                                                     </section>
                                                     <!-- end of featured section -->
                                                     <!-- start Trendings section -->
-                                                    <section class="box box-padding" style="margin-top: 40px;" id="trending">
+                                                    <section class="box box-padding" style="margin-top: 40px;" id="trend">
                                                         <div style="margin-bottom:12px">
                                                             <div class="coverlist-header">
                                                                 <span class="headline">Trendings</span>
@@ -349,28 +345,28 @@
                                                             <div class="no-scrollbar" style="display:flex ; flex: 1 1 0%; overflow-x: scroll;">
                                                             {% for trend in trendings %}
                                                                <div class="coverlist-item" style="margin-left: 0px; margin-right: 15px;width: 240px;cursor: auto;">
-                                                                    <img src="{{trend.artist_image.url}}" alt="" style="height: 240px;width: 240px;object-fit: cover;margin-bottom: 15px;" />
+                                                                    <img src="{{trend.song.artist_image.url}}" alt="" style="height: 240px;width: 240px;object-fit: cover;margin-bottom: 15px;" />
                                                                     <div style="display: flex; flex-direction: row;">
                                                                         <div style="overflow: hidden;">
                                                                             <div style="display: flex;justify-content: space-between;">
-                                                                                <span class="item-text item-title_link">Get Up 2</span>   
+                                                                                <span class="item-text item-title_link">{{trend.song.title}}</span>   
                                                                             </div>
                                                                                 <span class="item-text item-subtitle">
-                                                                                  <span class="link">music Junkies</span>
+                                                                                  <span class="link">{{trend.song.artist.name}}</span>
                                                                                 </span>
                                                                             </div>
                                                                         </div>
                                                                         <span class="item-text item-info">105</span>
                                                                         <div class="play-pause-overlay" style="height: 240px; width: 240px;object-fit: cover; margin-bottom: 15px;cursor:pointer">
                                                                             <span style="cursor: pointer;">
-                                                                              <div id="play-audio" class="play-background" data-url="{{trend.track.url}}">
+                                                                              <div id="play-audio" class="play-background" data-url="{{trend.song.track.url}}" data-id="{{trend.song.id}}">
                                                                                 <span class="fas fa-play text-align_c"></span>
                                                                               </div>    
                                                                             </span>      
                                                                         <div class="cover-more">
                                                                             <div class="browse-more" style="margin-left: auto;">
                                                                                 <div class="btn-group">
-                                                                                    <a href="{{trend.track.url}}" data-id="{{trend.id}}" style="border-radius: 50%;margin-bottom: 12px;" id="download-btn">
+                                                                                    <a href="{{trend.song.track.url}}" data-id="{{trend.song.id}}" style="border-radius: 50%;margin-bottom: 12px;" id="download-btn">
                                                                                         <span class="fas fa-download"></span>
                                                                                     </a>
                                                                                 </div>
@@ -382,6 +378,33 @@
                                                             {% endfor %}
                                                             </div>
                                                           </div>
+                                                    </section>
+                                                    <!--playlist-->
+                                                    <section class="box box-padding" style="margin-top: 40px;" id="playlist">
+                                                        <div style="margin-bottom:20px">
+                                                            <div class="" style="text-align:center;margin:2em auto">
+                                                                <span class="headline">PlayList</span>
+                                                                <h6 class="text_c-cream">This week top</h6>
+                                                            </div>
+                                                            <div class="no-scrollbar" style="display: flex; flex: 1 1 0%;flex-direction:column; overflow-x: scroll;">
+                                                            {% for playlist in playlists %}
+                                                              <div class="list-item grid-12">
+                                                                <div class="list-item-inner">
+                                                                  <div class="list-title"><a href="javascript:void(0)">{{playlist.song.title}} <span class="text_c-cream box_hrPad3"> by Rianna</span></a></div>
+                                                                  <div class="list-actions">
+                                                                    <a href="javascript:void(0)" id="play-audio"  data-url="{{playlist.song.track.url}}" data-id="{{playlist.song.id}}"><i class="fas fa-play"></i></a>
+                                                                    <a href="{{playlist.song.track.url}}"  data-id="{{playlist.song.id}}" id="download-btn"><i class="fas fa-download"></i></a>
+                                                                  
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            
+                                                            
+                                                            {% endfor %}
+                                                             
+                                                                   
+                                                            </div>
+                                                        </div>
                                                     </section>
                                                     <!-- Genre sec -->
                                                     <section class="box box-padding" style="margin-top: 40px;" id="genre">
@@ -406,26 +429,71 @@
                                                     <!-- audio player hidden -->
                                                     <section class="audio-player hidden" style="display: none;">
                                                         <div class="col artist-title " style="font-size: 1.6rem;">
-                                                           {% comment %} {{music.title}} {% endcomment %}
+                                                           
                                                         </div>
-                                                        <div class="col version">2.6.8</div>
-                                                        <!-- <div class="col controls"></div> -->
-                                                        
-                                                        <div class="col bpmprogress"></div>
+                                                        <div class="col version">2.6.2</div>
+                                                        <div class="embed-media_player" style="width:60%"></div>
                                                     </section>
                                                     <!-- end of player -->
 
+                                                    <section class="md-modal md-effect-1 " id="modal-1">
+                                                     <article class="md-content">
+                                                       <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+                                                         <span class="clos" style="margin:auto; font-size:2em; color:red" id="md-close">&times;</span>
+                                                       </div>
+                                                      <h3>user profile</h3>
+                                                      <div class="container-fluid layout_rel text_c-blue box_vertPad2" id ="form_pos">
+                                                       <div class="row m-auto" style="position:relative">
+                                                          <div class="col-lg-12 col-md-12">
+                                                              <div class="card m-auto" style="background:#0e171e;">
+                                                                  <div class="card-body">
+                                                                      <div class="text-center">
+                                                                        
+                                                                          {% if profile.profile_pic.url is not None %}
+                                                                             <img src="{{profile.profile_pic.url}}" class="rounded-circle" width="60" />
+                                                                          {% else %}
+                                                                             <img src="{% static 'images/logo.jpg' %}" class="rounded-circle" width="60" />
+                                                                          {% endif %}
+                                                                          
+                                                                          <h4 class="card-title mt-10 text_c-cream">{{profile.user.username}}</h4>
+                                                                          
+                                          
+                                                                       </div>
+                                                                    </div>
+                                                                   
+                                                                    <div class="card-body">
+                                                                          <small class="text-muted d-block">Full name </small>
+                                                                          <h6 class="text_c-cream">{{profile.first_name}} {{profile.last_name}}</h6>
+                                                                          <small class="text-muted d-block">Email address </small>
+                                                                          <h6 class="text_c-cream">{{profile.email}}</h6>
+                                                                          <small class="text-muted d-block pt-10">Phone</small>
+                                                                          <h6 class="text_c-cream">{{profile.phone_number}}</h6>
+                                                                          <small class="text-muted d-block pt-10">location</small>
+                                                                          <h6 class="text_c-cream">{{profile.location}}</h6>
+                                                                          <div class="map-box"></div>
+                                                                          <br />
+                                                                          <a href="{% url 'latinoMusic_app:user-profile' %}" class="">Edit</a>
+                                                                     </div>
+                                                                  </div>
+                                                                </div>
+                                                                    
+                                                            
+                
+                                                        </div>
+                                                      </div>
+                                                    </article>
+                                                  </section>
                                                    
                                                     <!-- end of site content -->
 
                                                     <div class="footer " style="border-top: 1px solid #dbe2e8;max-width: 1024px;margin: 30px auto 80px; padding: 30px 0 0; ">
                                                         <ul class=" " style="font-weight: 600;color:#2e3d49;padding-left: 15px;padding-right: 15px;font-size: .875rem; ">
                                                             <li class=" ">
-                                                                <a href=" " style="margin-right: 25px; color: inherit;font-weight: inherit;text-decoration: none; ">Help & FAQ</a>
+                                                                <a href=" " style="margin-right: 25px; color: #f1f1f1;font-weight: inherit;text-decoration: none; ">Help & FAQ</a>
                                                             </li>  
                                                       
                                                             <li class=" ">
-                                                              <a  href=" " style="margin-right: 25px; color: inherit;font-weight: inherit;text-decoration: none; " >Report An Issue</a>
+                                                              <a  href=" " style="margin-right: 25px; color:#f1f1f1;font-weight: inherit;text-decoration: none; " >Report An Issue</a>
                                                                 
                                                             </li>
                                                         </ul>
@@ -458,11 +526,8 @@
 
         e.preventDefault();
         let loc_array = String(item.attributes[0].value).split('/');
-        console.log(loc_array)
         //data
-        let data = String(item.attributes[1].value);
-        console.log(data);
-        
+        let data = String(item.attributes[1].value);    
         let request = new XMLHttpRequest();
         request.open('GET','{% url "latinoMusic_app:download_music" %}'+'?songid='+data,true);
         request.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8');
@@ -499,20 +564,73 @@
       });
 
     });
+
+
+   {% comment %} document.querySelectorAll('.play-bground').forEach(item=>{
+      item.addEventListener('click',function(){
+           let data = String(item.attributes[1].value);
+
+           console.log("clicked",item.attributes[1].value)
+      });
+      
+    });  {% endcomment %}
+
+    $('#apps_modal_btn').on('click',function(){
+       $('#modal-1').toggleClass("md-show");
+    });
+
+    $('div#play-audio,#play-audio').on('click', function() {
+        let s = $(this).attr('data-id')
+        let audi_player = '<audio controls autoplay><source src=' + $(this).attr('data-url') + ' type="audio/mpeg"/></audio>'
+        $('.audio-player').show();
+        $('.embed-media_player').append(audi_player);
+        playAudio(s) 
+
+    });
   
-  /* function playAudio(){
+   function playAudio(s){
     $.ajax({
       method:'GET',
-      url:'{% url "latinoMusic_app:play_music" 1%}',
-      data:{'songid':1},
-      success: function(data){
+      url:'{% url "latinoMusic_app:play_music"%}',
+      data:{'songid':s},
+      success: function(response){
         console.log("success");
-        let audio_player = '<audio id="" src="{{music.track.url}}" preload="auto"></audio>';
-        {% comment %} document.querySelector('.audio-player').write(audio_player); {% endcomment %}
-        document.write(audio_player)
+        console.log(response['data'])
+        $('div.artist-title').text(response['data'])
       }
     })
-  }  */
+  }  
+
+   {% comment %} $('#user_profForm').submit(function(e) {
+              e.preventDefault();
+              window.alert("form submitted");
+              var serializedData = $(this).serialize();
+              console.log("serialized data :" + serializedData);
+
+              $.ajax({
+                  url: {% url 'latinoMusic_app:updateProfile-details' %},
+                  dataType: "json",
+                  method: 'post',
+                  data: serializedData,
+                  headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                  success: function(response) {
+                      alert(response['message']);
+                     
+
+                  },
+                  error: function(response) {
+                      alert(response["error"]);
+
+                  }
+              });
+
+          }); {% endcomment %}
+
+    $('#md-close').on('click', function(e) {
+        e.preventDefault();
+        $('#modal-1').toggleClass("md-show");
+    });
+      
   
   </script>
 </html>

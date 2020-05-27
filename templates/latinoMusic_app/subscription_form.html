@@ -1,12 +1,33 @@
 {% extends 'latinoMusic_app/base.html' %}
 {% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/subscription.css' %}">
+{% endblock stylesheet %}
 {% block body_block %}
-<form action="" method="POST">
-{% csrf_token %}
-{{sub_form}}
-<input type='submit' value='subscribe'>
-</form>
-
+ <main class="full-view">
+        <section class="full-view_inner_cont">
+            
+            <form method="post" action="" class="subscribe" id="login">
+            {% csrf_token %}
+               <a href="{% url 'latinoMusic_app:index' %}" style="margin:auto">
+                  <img src="{% static 'images/logo.jpg' %}" alt="" style="width: 68px; height: 68px; border-radius: 50%;" />
+               </a>
+                
+                <article class="subscrip-desc">
+                    <span class="fas fa-user-tie" style="color: #fff;font-size: 3rem;"></span>
+                    <p>User subscription</p>
+                </article>
+                <article class="subscrip_field field">
+                    {{sub_form}}
+                </article>
+                
+                <article class="subscrip_footer">
+                    <input type='submit' value='Continue' class='subscrip_btn'>
+                </article>
+            </form>
+        </section>
+        
+    </main>
 
  {% endblock body_block %}
 
